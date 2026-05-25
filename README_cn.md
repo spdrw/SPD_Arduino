@@ -6,7 +6,7 @@ English description [README.md](README.md)
 
 ## 项目简介
 
-`SPD_Arduino` 是一个用于读取/写入 EEPROM/Serial Presence Detect (SPD) 芯片的 Arduino 库，针对 ESP32 / Arduino 平台进行了轻量封装。库通过 I2C 与 SPD 器件通信，提供简单的初始化、读写接口，方便在固件中获取内存条信息或操作小型 I2C EEPROM。
+`SPD_Arduino` 是一个用于读取/写入 EEPROM/Serial Presence Detect (SPD) 芯片的 Arduino 库，针对 ESP32 / Arduino 平台进行了轻量封装。库通过 I2C 与 SPD 器件通信，提供简单的初始化、读写接口，方便在固件中获取内存条信息或操作小型 I2C EEPROM，目前仅支持DDR4及以下。
 
 ## 主要特性
 

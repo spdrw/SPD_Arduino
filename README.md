@@ -6,7 +6,7 @@ English description [README.md](README.md)
 
 ## Project Overview
 
-`SPD_Arduino` is an Arduino library for reading/writing EEPROM / Serial Presence Detect (SPD) chips, lightly wrapped for the ESP32 / Arduino platform. The library communicates with SPD devices over I2C and provides simple initialization, read and write interfaces, making it easy to retrieve memory module information or operate small I2C EEPROMs in firmware.
+`SPD_Arduino` is an Arduino library for reading/writing EEPROM / Serial Presence Detect (SPD) chips, lightly wrapped for the ESP32 / Arduino platform. The library communicates with SPD devices over I2C and provides simple initialization, read and write interfaces, making it easy to retrieve memory module information or operate small I2C EEPROMs in firmware,Currently, only DDR4 and lower are supported.
 
 ## Key Features
 
