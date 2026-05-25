@@ -1,6 +1,8 @@
 # SPD_Arduino
 
-简体中文说明
+English description [README.md](README.md)
+
+简体中文版 [README_cn.md](README_cn.md)
 
 ## 项目简介
 
