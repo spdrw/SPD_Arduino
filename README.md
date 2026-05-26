@@ -19,11 +19,6 @@ English description [README.md](README.md)
 - ESP32
 - Arduino (uses Wire / I2C)
 
-## Installation
-
-1. Install this repository as an Arduino library in your `libraries/` folder, or use the Arduino IDE "Add .ZIP Library" feature.
-2. Include `Wire.h` in your sketch (the library implementation uses Wire).
-
 ## Pins & Wiring
 
 Connect the target SPD/EEPROM SDA to your board's SDA, SCL to SCL, and wire power and ground. Common ESP32 I2C pins are GPIO21 (SDA) and GPIO22 (SCL), but check your board.
