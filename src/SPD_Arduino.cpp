@@ -37,9 +37,19 @@ static inline void ddr4SetPage(uint16_t address) {
     delay(SPD_PAGE_DELAY_MS);
 }
 
+static inline void checkSPDDevice(uint8_t addr) {
+    Wire.beginTransmission(addr);
+    if (Wire.endTransmission() != 0) {
+        Serial.print("SPD device not found at address 0x");
+        Serial.println(addr, HEX);
+        while (true);
+    }
+}
+
 void SPDClass::begin(uint8_t spdType, uint8_t addr) {
     _spdType = spdType;
     _addr = addr;
+    checkSPDDevice(_addr);
 }
 
 uint16_t SPDClass::read(uint16_t address) {

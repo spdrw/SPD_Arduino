@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include "SPD_Arduino.h"
+#include <SPD_Arduino.h>
 
 const uint16_t SPD_SIZE = 512; // Total SPD Data Size
 
