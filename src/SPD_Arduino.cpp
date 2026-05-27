@@ -12,7 +12,15 @@ static constexpr uint8_t SPD_WRITE_DELAY_MS = 10;
 static inline void i2cWriteSimple(uint8_t addr, const uint8_t* data, size_t len) {
     Wire.beginTransmission(addr);
     Wire.write(data, (size_t)len);
-    (void)Wire.endTransmission();
+    if (Wire.endTransmission() != 0) {
+        Serial.print("I2C write failed to address 0x");
+        Serial.println(addr, HEX);
+        Serial.print("Data: ");
+        for (size_t i = 0; i < len; ++i) {
+            Serial.print(data[i], HEX);
+        }
+        Serial.println();
+    }
 }
 
 static inline void i2cReadSimple(uint8_t addr, uint8_t* data, size_t len) {
@@ -26,7 +34,7 @@ static inline void i2cReadSimple(uint8_t addr, uint8_t* data, size_t len) {
 static inline void i2cWriteThenReadSimple(uint8_t addr, const uint8_t* wdata, size_t wlen, uint8_t* rdata, size_t rlen) {
     Wire.beginTransmission(addr);
     Wire.write(wdata, (size_t)wlen);
-    (void)Wire.endTransmission(false); // repeated start
+    (void)Wire.endTransmission(false);
     i2cReadSimple(addr, rdata, rlen);
 }
 
@@ -53,6 +61,7 @@ void SPDClass::begin(uint8_t spdType, uint8_t addr) {
 }
 
 uint16_t SPDClass::read(uint16_t address) {
+    checkSPDDevice(_addr);
     if (_spdType == 4) {
         ddr4SetPage(address);
     }
@@ -63,6 +72,7 @@ uint16_t SPDClass::read(uint16_t address) {
 }
 
 void SPDClass::write(uint16_t address, uint8_t value) {
+    checkSPDDevice(_addr);
     if (_spdType == 4) {
         ddr4SetPage(address);
     }
